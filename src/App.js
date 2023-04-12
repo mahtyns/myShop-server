@@ -95,14 +95,16 @@ const App = () => {
   const deleteFromCart = (productId) => {
       const handleDelete = async () => {
         try {
-          const resp = await fetch(`http://localhost:5000/cart_products/${productId}`, {
+          const response = await fetch(`http://localhost:5000/cart-products/${productId}`, {
             method: 'DELETE'
           } );
-        const data = await response.json();
+        // const data = await response.json();
+        console.log(response)
         } catch (error) {
           console.log(error.message)
         }
       }
+      handleDelete()
   }
 
 

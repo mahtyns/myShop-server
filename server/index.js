@@ -19,13 +19,26 @@ app.get("/cart-products", async(req,res)=> {
 
 app.get("/products:id", async (req,res) => {
     try {
-        const id = req.params;
-        const todo = await pool.query("SELECT (*) FROM products WHERE product_id = $1", [id])
+        const product_id = req.params;
+        const todo = await pool.query("SELECT (*) FROM products WHERE product_id = $1", [product_id])
         res.json(todo.rows[0])
     } catch (error) {
         console.error(error.message)
     }
 } );
+
+app.get('/cart-products/:product_id', async (req, res) => {
+  try {
+    const { product_id } = req.params;
+    const getProduct = await pool.query(
+      'SELECT * FROM user_product WHERE product_id = $1', [product_id]
+    );
+    res.json(getProduct.rows);
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).send('Server Error');
+  }
+});
 
 app.post('/cart-products', async (req, res) => {
   try {
@@ -41,16 +54,19 @@ app.post('/cart-products', async (req, res) => {
   }
 });
 
-app.delete('/cart-products/:id', async (res,req) => {
+app.delete('/cart-products/:product_id', async (req, res) => {
     try {
-        const { product_id } = req.params
+        const { product_id } = req.params;
         const deleteProduct = await pool.query(
             'DELETE FROM user_product WHERE product_id = $1', [product_id]
-        )
+        );
+        res.send(`Deleted cart product with ID ${product_id}`);
+        res.status(204).end();
     } catch (error) {
-        console.log(error.message)
+        console.log(error.message);
+        res.status(500).send('Server Error');
     }
-})
+});
 
 
 app.get("/products", async(req,res)=> {
