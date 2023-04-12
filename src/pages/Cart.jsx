@@ -6,17 +6,17 @@ import { CartContainer, CartWrapper, CartProductContainer, CartSummaryContainer 
 import PropTypes from 'prop-types';
 
 
-const Cart = ({ itemsAddedToCartList, finalPriceCount, deleteItemCart, addOneProductCart, removeOneProductCart, chooseDeliveryOption }) => {
+const Cart = (props) => {
     return (
         <>
             <CartContainer>
                 <SharedTitle>Your Cart Summary</SharedTitle>
                 <CartWrapper>
                     <CartProductContainer>
-                        <ProductsCart itemsAddedToCartList={itemsAddedToCartList} deleteItemCart={deleteItemCart} addOneProductCart={addOneProductCart} removeOneProductCart={removeOneProductCart} />
+                        <ProductsCart itemsAddedToCartList={props.itemsAddedToCartList} />
                     </CartProductContainer>
                     <CartSummaryContainer>
-                        <ShopSummary finalPriceCount={finalPriceCount} chooseDeliveryOption={chooseDeliveryOption} />
+                        <ShopSummary finalPriceCount={props.finalPriceCount} chooseDeliveryOption={props.chooseDeliveryOption} />
                     </CartSummaryContainer>
                 </CartWrapper>
             </CartContainer>

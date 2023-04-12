@@ -27,18 +27,30 @@ app.get("/products:id", async (req,res) => {
     }
 } );
 
+app.post('/cart-products', async (req, res) => {
+  try {
+    const { product_id, product_name, product_description, product_price, product_cat, product_stock } = req.body;
+    const result = await pool.query(
+      'INSERT INTO user_product (product_id, product_name, product_description, product_price, product_cat, product_stock) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *',
+      [product_id, product_name, product_description, product_price, product_cat, product_stock]
+    );
+    res.status(201).json(result.rows[0]);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
 
-app.post("/cart-products", async(req, res) => {
+app.delete('/cart-products/:id', async (res,req) => {
     try {
-        const { user_id, product_name, product_description, product_price, product_cat, product_stock } = req.body;
-        const productAddedToCart = await pool.query("INSERT INTO user_cart(user_id, product_name, product_description, product_price, product_cat, product_stock) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *", [user_id, product_name, product_description, product_price, product_cat, product_stock])
-        res.json(productAddedToCart.rows[0]);
-        console.log(productAddedToCart.rows[0]);
+        const { id } = req.params
+        const deleteProduct = await pool.query(
+            'DELETE FROM user_product WHERE id = $1', [id]
+        )
     } catch (error) {
-        console.error(error.message)
+        console.log(error.message)
     }
 })
-
 
 
 app.get("/products", async(req,res)=> {

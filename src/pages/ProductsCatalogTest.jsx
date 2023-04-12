@@ -4,24 +4,24 @@ import { SharedParagraph, SharedTitle } from '../styling/sharedStyling';
 import { ProductShopContainer } from '../styling/productShopStyling';
 import ProductCatalogElements from '../components/serversideComponents/ProductCatalogElements';
 
-const ProductsCatalogTest = ({ productCatalogList, addItemToCart}) => {
+const ProductsCatalog = ( props ) => {
 
   
 
   return (
     <>
     <SharedTitle>Products Catalog</SharedTitle>
-    <SharedParagraph>This page is built to test the connection to the server and shop database.</SharedParagraph>
+    <SharedParagraph>Browse our cosmetics and choose your favourites.</SharedParagraph>
     <ProductShopContainer>
-        <ProductCatalogElements productCatalogList={productCatalogList} addItemToCart={addItemToCart}></ProductCatalogElements>
+        <ProductCatalogElements productCatalogList={props.productCatalogList} addToCart={props.addToCart}></ProductCatalogElements>
     </ProductShopContainer>
     </>
   )
 }
 
-ProductsCatalogTest.propTypes = {
+ProductsCatalog.propTypes = {
   productCatalogList: PropTypes.array,
-  addItemToCart: PropTypes.func
+  addToCart: PropTypes.func
 }
 
-export default ProductsCatalogTest;
+export default ProductsCatalog;

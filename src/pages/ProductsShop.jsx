@@ -6,7 +6,7 @@ import { ProductShopContainer } from '../styling/productShopStyling';
 import { SharedParagraph, SharedTitle } from '../styling/sharedStyling';
 
 
-const ProductsShop = ({ itemsAddedToCartList, addItemToCart, availableStock }) => {
+const ProductsShop = (props) => {
     const [searchTerm, setSearchTerm] = useState('')
     const [sortingOptionList, setSortingOptionList] = useState("");
 
@@ -37,7 +37,7 @@ const ProductsShop = ({ itemsAddedToCartList, addItemToCart, availableStock }) =
             </SharedParagraph>
             <SearchFilterProductBar searchProductByTyping={searchProductByTyping} chooseSortingOptionFromDropdownList={chooseSortingOptionFromDropdownList} resetAllFilters={resetAllFilters} />
             <ProductShopContainer>
-                <Products itemsAddedToCartList={itemsAddedToCartList} addItemToCart={addItemToCart} availableStock={availableStock} searchTerm={searchTerm} sortingOptionList={sortingOptionList} />
+                <Products itemsAddedToCartList={props.itemsAddedToCartList} availableStock={props.availableStock} searchTerm={searchTerm} sortingOptionList={sortingOptionList} addToCart={props.addToCart} />
             </ProductShopContainer>
         </>
     )
@@ -48,6 +48,7 @@ ProductsShop.propTypes = {
     itemsAddedToCartList: PropTypes.array,
     addItemToCart: PropTypes.func,
     availableStock: PropTypes.number,
+    addToCart: PropTypes.func,
 }
 
 export default ProductsShop

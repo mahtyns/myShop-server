@@ -14,7 +14,6 @@ const Navbar = ({ finalPriceCount, itemsCartNumber }) => {
                         <ListItem><Link to="/about">About</Link></ListItem>
                         <ListItem><Link to="/products">Products</Link></ListItem>
                         <ListItem ><Link to="/contact">Contact</Link></ListItem>
-                        <ListItem ><Link to="/catalog">Product Catalog - test</Link></ListItem>
                     </NavigationList>
                 </NavigationLinksContainer>
                 <NavbarLogo><Link to="/">MyShop</Link></NavbarLogo>

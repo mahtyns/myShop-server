@@ -4,7 +4,7 @@ import ProductItem from './ProductItem';
 import { products } from '../data';
 import { ProductsContainer } from '../styling/productShopStyling';
 
-const Products = ({ addItemToCart, availableStock, searchTerm, sortingOptionList }) => {
+const Products = ({ addToCart, availableStock, searchTerm, sortingOptionList }) => {
 
     const productListUnsorted = products.slice();
 
@@ -17,7 +17,7 @@ const Products = ({ addItemToCart, availableStock, searchTerm, sortingOptionList
                         return <ProductItem product={product} addItemToCart={addItemToCart} availableStock={availableStock} />
                     else if (product.name.toLowerCase().includes(searchTerm.toLowerCase()))
                         return <ProductItem product={product} addItemToCart={addItemToCart} availableStock={availableStock} />
-                }).map((product, index) => <ProductItem key={index} product={product} index={index} addItemToCart={addItemToCart} availableStock={availableStock} />)}
+                }).map((product, index) => <ProductItem key={index} product={product} index={index} addItemToCart={addToCart} availableStock={availableStock} />)}
             </ProductsContainer>
         )
     }
@@ -31,7 +31,7 @@ const Products = ({ addItemToCart, availableStock, searchTerm, sortingOptionList
                         return <ProductItem product={product} addItemToCart={addItemToCart} availableStock={availableStock} />
                     else if (product.name.toLowerCase().includes(searchTerm.toLowerCase()))
                         return <ProductItem product={product} addItemToCart={addItemToCart} availableStock={availableStock} />
-                }).map((product, index) => <ProductItem key={index} product={product} index={index} addItemToCart={addItemToCart} availableStock={availableStock} />)}
+                }).map((product, index) => <ProductItem key={index} product={product} index={index} addItemToCart={addToCart} availableStock={availableStock} />)}
             </ProductsContainer>
         )
 
@@ -46,7 +46,7 @@ const Products = ({ addItemToCart, availableStock, searchTerm, sortingOptionList
                     else if (product.name.toLowerCase().includes(searchTerm.toLowerCase()))
                         return <ProductItem product={product} addItemToCart={addItemToCart} availableStock={availableStock} />
                 }).map((product, index) => (
-                    <ProductItem key={index} product={product} index={index} addItemToCart={addItemToCart} availableStock={availableStock} />
+                    <ProductItem key={index} product={product} index={index} addItemToCart={addToCart} availableStock={availableStock} />
                 ))}
             </ProductsContainer>
         )
@@ -54,7 +54,7 @@ const Products = ({ addItemToCart, availableStock, searchTerm, sortingOptionList
 }
 
 Products.propTypes = {
-    addItemToCart: PropTypes.func, 
+    addToCart: PropTypes.func, 
     availableStock: PropTypes.number, 
     searchTerm: PropTypes.string, 
     sortingOptionList: PropTypes.func
