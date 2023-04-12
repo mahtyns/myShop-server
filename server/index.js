@@ -29,10 +29,10 @@ app.get("/products:id", async (req,res) => {
 
 app.post('/cart-products', async (req, res) => {
   try {
-    const { product_id, product_name, product_description, product_price, product_cat, product_stock } = req.body;
+    const { product_id, product_name, product_description, product_price, product_cat, product_stock, product_url } = req.body;
     const result = await pool.query(
-      'INSERT INTO user_product (product_id, product_name, product_description, product_price, product_cat, product_stock) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *',
-      [product_id, product_name, product_description, product_price, product_cat, product_stock]
+      'INSERT INTO user_product (product_id, product_name, product_description, product_price, product_cat, product_stock, product_url) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *',
+      [product_id, product_name, product_description, product_price, product_cat, product_stock, product_url]
     );
     res.status(201).json(result.rows[0]);
   } catch (err) {
@@ -43,9 +43,9 @@ app.post('/cart-products', async (req, res) => {
 
 app.delete('/cart-products/:id', async (res,req) => {
     try {
-        const { id } = req.params
+        const { product_id } = req.params
         const deleteProduct = await pool.query(
-            'DELETE FROM user_product WHERE id = $1', [id]
+            'DELETE FROM user_product WHERE product_id = $1', [product_id]
         )
     } catch (error) {
         console.log(error.message)

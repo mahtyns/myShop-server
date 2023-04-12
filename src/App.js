@@ -8,10 +8,8 @@ import Navbar from "./components/Navbar";
 import { BrowserRouter as Router } from "react-router-dom";
 import Footer from "./components/Footer";
 import { Routes, Route } from "react-router";
-import ProductsShop from "./pages/ProductsShop";
 import PurchaseSummary from "./pages/PurchaseSummary";
-import ProductsCatalogTest from "./pages/ProductsCatalogTest";
-import ProductsCatalog from "./pages/ProductsCatalogTest";
+import ProductsCatalog from "./pages/ProductsCatalog";
 
 
 const App = () => {
@@ -55,6 +53,7 @@ const App = () => {
       product_price: product.product_price,
       product_cat: product.product_cat,
       product_stock: product.product_stock,
+      product_url: product.product_url,
     }),
   })
     .then((response) => response.json())

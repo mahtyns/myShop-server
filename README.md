@@ -2,31 +2,20 @@
 
 ## Introduction
 
-This project was developed as part of the DareIT Mentorship Programme.
-The main objective is to learn JS React Library by creating a Single Page Application for an Online Shop.
-The user can navigate between SPA's subpages, fill the contact form and add products to the cart.
+This is a FullStack Version of a "MyShop" Project with React, Node, Express and PostgreSQL. The project was developed as a part of DareIT Mentorship Programme. 
 
-- The project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+You can find the no-server version here: [Link](https://github.com/mahtyns/mahtyns.github.io)
 
 ## How to start
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Copy the project to your local repo.
+Run npm install.
+In the server folder, run 'Nodemon index.js'.
+In the main folder, run 'npm start'.
 
 ## WIP
-- Search Product ✅, Sort ✅ & Filter Options
-- ESLint ✅
 - Building server side - Express, PostgreSQL, Node ▶️ 
-- Send Email after purchase
 - Discount coupons
-- Product Page
 - Mobile Version
 
 ## Structure
