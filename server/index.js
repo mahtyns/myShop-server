@@ -30,12 +30,10 @@ app.get("/products:id", async (req,res) => {
 
 app.post("/cart-products", async(req, res) => {
     try {
-        const newProductAdded = req.body;
-        const productAddedToCart = await pool.query("INSERT INTO user_product(product_name, product_description, product_price, product_cat, product_stock) VALUES $1 RETURNING *", [newProductAdded])
-        res.json(productAddedToCart)
-        res.status(201).send('Added product')
-        console.log(newProductAdded)
-    
+        const { user_id, product_name, product_description, product_price, product_cat, product_stock } = req.body;
+        const productAddedToCart = await pool.query("INSERT INTO user_cart(user_id, product_name, product_description, product_price, product_cat, product_stock) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *", [user_id, product_name, product_description, product_price, product_cat, product_stock])
+        res.json(productAddedToCart.rows[0]);
+        console.log(productAddedToCart.rows[0]);
     } catch (error) {
         console.error(error.message)
     }

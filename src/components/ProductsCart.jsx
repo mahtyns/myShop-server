@@ -5,18 +5,13 @@ import { CartProductsSummaryContainer, CartProductsSummaryItems } from '../styli
 import React from 'react';
 import PropTypes from 'prop-types';
 
-
-
-const ProductsCart = ({ itemsAddedToCartList, deleteItemCart, addOneProductCart, removeOneProductCart }) => {
+const ProductsCart = (props) => {
 
     return (
         <CartProductsSummaryContainer>
             <CartProductsSummaryItems>
-                {itemsAddedToCartList.length ? <SingleCartProductElement
-                    itemsAddedToCartList={itemsAddedToCartList}
-                    // deleteItemCart={deleteItemCart}
-                    // addOneProductCart={addOneProductCart}
-                    // removeOneProductCart={removeOneProductCart}
+                {props.itemsAddedToCartList.length ? <SingleCartProductElement
+                    itemsAddedToCartList={props.itemsAddedToCartList}
                 /> : <SharedParagraph>Your cart is empty</SharedParagraph>}
             </CartProductsSummaryItems>
         </CartProductsSummaryContainer>
