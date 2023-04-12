@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import AlertInformationNavbar from "./components/AlertInformationNavbar";
 import Home from "./pages/Home";
 import Cart from "./pages/Cart";
@@ -17,6 +17,7 @@ const App = () => {
   const [productCatalogList, setProductCatalogList] = useState([]);
   const [itemsAddedToCartList, setItemsAddedToCartList] = useState([]);
   const [finalPriceCount, setFinalPriceCount] = useState(0);
+  // const finalPriceCount = useRef(null)
   const [itemsCartNumber, setItemsCartNumber] = useState(0);
   const [deliveryOptionId, setDeliveryOptionId] = useState(null);
 
@@ -42,7 +43,8 @@ const App = () => {
 
  const addToCart = (product) => {
 
-  if (!checkIfRepeatedInCart(product.product_id)){
+  if (!checkIfRepeatedInCart(product.product_id))
+  {
   fetch('http://localhost:5000/cart-products', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -59,6 +61,7 @@ const App = () => {
     .then((response) => response.json())
     .then((data) => console.log(data))
     .catch((error) => console.error(error));}
+    setFinalPriceCount(finalPriceCount + product.product_price) 
 };
 
   const getProductsInCart = async () => {
