@@ -16,7 +16,7 @@ const Navbar = ({ finalPriceCount, itemsCartNumber }) => {
                         <ListItem ><Link to="/contact">Contact</Link></ListItem>
                     </NavigationList>
                 </NavigationLinksContainer>
-                <NavbarLogo><Link to="/">MyShop</Link></NavbarLogo>
+                <NavbarLogo><Link to="/">CousMetics</Link></NavbarLogo>
                 <UserInteractionsContainer>
                     <SearchInputWrapper>
                         <SearchInput />

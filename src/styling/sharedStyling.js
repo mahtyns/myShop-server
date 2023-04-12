@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const SharedTitle = styled.div`
 font-size:60px;
 text-align: center;
-margin: 10px 0px;
+margin: 90px 0px;
 `;
 
 export const SharedSubtitle = styled.div`

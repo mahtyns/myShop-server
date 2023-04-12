@@ -11,17 +11,20 @@ const ProductsCatalog = ( props ) => {
   return (
     <>
     <SharedTitle>Products Catalog</SharedTitle>
-    <SharedParagraph>Browse our cosmetics and choose your favourites.</SharedParagraph>
-    <ProductShopContainer>
-        <ProductCatalogElements productCatalogList={props.productCatalogList} addToCart={props.addToCart}></ProductCatalogElements>
-    </ProductShopContainer>
+      <SharedParagraph>Browse our cosmetics and choose your favourites.</SharedParagraph>
+      <ProductShopContainer>
+        <ProductCatalogElements 
+        productCatalogList={props.productCatalogList} 
+        addToCart={props.addToCart} />
+      </ProductShopContainer>
     </>
   )
 }
 
 ProductsCatalog.propTypes = {
   productCatalogList: PropTypes.array,
-  addToCart: PropTypes.func
+  addToCart: PropTypes.func, 
+  deleteFromCart: PropTypes.func
 }
 
 export default ProductsCatalog;

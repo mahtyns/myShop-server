@@ -13,7 +13,7 @@ const Cart = (props) => {
                 <SharedTitle>Your Cart Summary</SharedTitle>
                 <CartWrapper>
                     <CartProductContainer>
-                        <ProductsCart itemsAddedToCartList={props.itemsAddedToCartList} />
+                        <ProductsCart itemsAddedToCartList={props.itemsAddedToCartList} deleteFromCart={props.deleteFromCart} />
                     </CartProductContainer>
                     <CartSummaryContainer>
                         <ShopSummary finalPriceCount={props.finalPriceCount} chooseDeliveryOption={props.chooseDeliveryOption} />
@@ -30,7 +30,8 @@ Cart.propTypes = {
     itemsAddedToCartList: PropTypes.array,
     deleteItemCart: PropTypes.func, 
     addOneProductCart: PropTypes.func, 
-    removeOneProductCart: PropTypes.func
+    removeOneProductCart: PropTypes.func,
+    deleteFromCart: PropTypes.func
 }
 
 

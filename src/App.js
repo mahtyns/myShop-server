@@ -90,8 +90,18 @@ const App = () => {
         setDeliveryOptionId(e.target.value); 
      }
 
- 
-
+  const deleteFromCart = (productId) => {
+      const handleDelete = async () => {
+        try {
+          const resp = await fetch(`http://localhost:5000/cart_products/${productId}`, {
+            method: 'DELETE'
+          } );
+        const data = await response.json();
+        } catch (error) {
+          console.log(error.message)
+        }
+      }
+  }
 
 
   return (
@@ -109,13 +119,14 @@ const App = () => {
               <Cart itemsAddedToCartList={itemsAddedToCartList}
               finalPriceCount={finalPriceCount}
               chooseDeliveryOption={chooseDeliveryOption}
+              deleteFromCart={deleteFromCart}
               />
             }
           />
           <Route path="/contact" element={<Form />} />
           <Route
             path="/products"
-            element={<ProductsCatalog productCatalogList={productCatalogList} addToCart={addToCart}/>}
+            element={<ProductsCatalog productCatalogList={productCatalogList} addToCart={addToCart} />}
           />
           <Route path="/about" element={<About />} />
           <Route path="/checkout" element={<PurchaseSummary 

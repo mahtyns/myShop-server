@@ -11,9 +11,9 @@ import {
 } from '../../styling/userCartStyling';
 import {Delete, Add, Remove} from '@material-ui/icons';
 
-const SingleCartProductElement = ({itemsAddedToCartList}) => {
+const SingleCartProductElement = (props) => {
     return ( <> {
-        itemsAddedToCartList.map((addedCartItem) => <SingleItemAddedContainer key={addedCartItem.product_name}>
+        props.itemsAddedToCartList.map((addedCartItem) => <SingleItemAddedContainer key={addedCartItem.product_name}>
             {/* <AddedToCartImage src={products[addedCartItem.id].img} /> */}
             <AddedToCartImage
                 src='https://images.unsplash.com/photo-1610513320995-1ad4bbf25e55?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'/>
@@ -26,7 +26,7 @@ const SingleCartProductElement = ({itemsAddedToCartList}) => {
                     <Add/>
                     Amount: {addedCartItem.amount}
                     <Remove/>
-                    <AddRemoveCartProductButton >
+                    <AddRemoveCartProductButton onClick={() => props.deleteFromCart(addedCartItem.product_id)}>
                         <Delete/>
                     </AddRemoveCartProductButton>
                 </CartProductAuxiliaryText>
@@ -39,7 +39,7 @@ const SingleCartProductElement = ({itemsAddedToCartList}) => {
 
 SingleCartProductElement.propTypes = {
     itemsAddedToCartList: PropTypes.array,
-
+    deleteFromCart: PropTypes.func
 }
 
 export default SingleCartProductElement

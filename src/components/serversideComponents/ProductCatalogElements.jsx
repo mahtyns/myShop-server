@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import { ProductsContainer } from '../../styling/productShopStyling';
 import ProductCatalogSingleItem from './ProductCatalogSingleItem'
 
-const ProductCatalogElements = ({ productCatalogList, addToCart }) => {
+const ProductCatalogElements = (props) => {
   return (
     <ProductsContainer>
-      {productCatalogList.map((productFromCatalog) => 
-        <ProductCatalogSingleItem key={productFromCatalog.product_id} productFromCatalog={productFromCatalog} addToCart={addToCart} />
+      {props.productCatalogList.map((productFromCatalog) => 
+        <ProductCatalogSingleItem key={productFromCatalog.product_id} productFromCatalog={productFromCatalog} addToCart={props.addToCart} deleteFromCart={props.deleteFromCart}/>
       )}
     </ProductsContainer>
   )
@@ -15,7 +15,8 @@ const ProductCatalogElements = ({ productCatalogList, addToCart }) => {
 
 ProductCatalogElements.propTypes = {
   productCatalogList: PropTypes.array,
-  addToCart: PropTypes.func
+  addToCart: PropTypes.func,
+  deleteFromCart: PropTypes.func,
 }
 
 export default ProductCatalogElements;
