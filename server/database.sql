@@ -28,6 +28,8 @@ INSERT INTO products_table (product_name, product_description, product_price, pr
 
 INSERT INTO products_table (product_name, product_description, product_price, product_cat, product_stock, product_url) VALUES('YSL Black Opium', 'Yves Saint Laurent Black Opium eau de toilette', 49, 'Perfume', 2, 'https://images.unsplash.com/photo-1600612253971-422e7f7faeb6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80');
 
+INSERT INTO products_table (product_name, product_description, product_price, product_cat, product_stock, product_url) VALUES('Biotherm Aqua Source', 'Day cream hydration 48h', 35, 'Cream', 6, 'https://images.unsplash.com/photo-1620946419190-5b1345a7e5be?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80');
+
 CREATE TABLE user_product(
     product_id SERIAL PRIMARY KEY,
     product_name VARCHAR(50) NOT NULL,
