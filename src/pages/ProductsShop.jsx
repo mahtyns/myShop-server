@@ -1,16 +1,16 @@
 import React, { useState } from 'react'
+import PropTypes from 'prop-types';
 import Products from "../components/Products";
 import SearchFilterProductBar from '../components/SearchFilterProductBar';
 import { ProductShopContainer } from '../styling/productShopStyling';
 import { SharedParagraph, SharedTitle } from '../styling/sharedStyling';
 
 
-const ProductsShop = ({ itemsAddedToCartList, addItemToCart, availableStock }) => {
+const ProductsShop = (props) => {
     const [searchTerm, setSearchTerm] = useState('')
     const [sortingOptionList, setSortingOptionList] = useState("");
 
-    // Choose the sorting option from the dropdown list
-    const handleSortingOptions = (event) => {
+    const chooseSortingOptionFromDropdownList = (event) => {
         if (event.target.value === "name") {
             setSortingOptionList("name");
         }
@@ -22,8 +22,7 @@ const ProductsShop = ({ itemsAddedToCartList, addItemToCart, availableStock }) =
         }
     }
 
-    // Search product by typing name
-    const handleChangeSearch = (event) => {
+    const searchProductByTyping = (event) => {
         setSearchTerm(event.target.value)
     }
 
@@ -36,12 +35,20 @@ const ProductsShop = ({ itemsAddedToCartList, addItemToCart, availableStock }) =
             <SharedTitle>Shop our products</SharedTitle>
             <SharedParagraph>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus asperiores placeat laborum culpa tempore, optio rerum molestias! Accusantium, dolor tempore.
             </SharedParagraph>
-            <SearchFilterProductBar handleChangeSearch={handleChangeSearch} handleSortingOptions={handleSortingOptions} resetAllFilters={resetAllFilters} />
+            <SearchFilterProductBar searchProductByTyping={searchProductByTyping} chooseSortingOptionFromDropdownList={chooseSortingOptionFromDropdownList} resetAllFilters={resetAllFilters} />
             <ProductShopContainer>
-                <Products itemsAddedToCartList={itemsAddedToCartList} addItemToCart={addItemToCart} availableStock={availableStock} searchTerm={searchTerm} sortingOptionList={sortingOptionList} />
+                <Products itemsAddedToCartList={props.itemsAddedToCartList} availableStock={props.availableStock} searchTerm={searchTerm} sortingOptionList={sortingOptionList} addToCart={props.addToCart} />
             </ProductShopContainer>
         </>
     )
+}
+
+
+ProductsShop.propTypes = {
+    itemsAddedToCartList: PropTypes.array,
+    addItemToCart: PropTypes.func,
+    availableStock: PropTypes.number,
+    addToCart: PropTypes.func,
 }
 
 export default ProductsShop

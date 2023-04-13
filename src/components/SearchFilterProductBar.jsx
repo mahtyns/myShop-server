@@ -1,12 +1,14 @@
 import React from 'react'
+import PropTypes from 'prop-types';
+
 import { SearchFilterProductContainer, SearchFilterWrapper, SearchProductInput, SortProductDropdown } from '../styling/productShopStyling'
 
-const SearchFilterProductBar = ({ handleChangeSearch, handleSortingOptions, resetAllFilters }) => {
+const SearchFilterProductBar = ({ searchProductByTyping, chooseSortingOptionFromDropdownList, resetAllFilters }) => {
     return (
         <SearchFilterProductContainer>
             <SearchFilterWrapper>
-                <SearchProductInput placeholder='Search...' type="text" onChange={handleChangeSearch} />
-                <SortProductDropdown onChange={handleSortingOptions}>
+                <SearchProductInput placeholder='Search...' type="text" onChange={searchProductByTyping} />
+                <SortProductDropdown onChange={chooseSortingOptionFromDropdownList}>
                     <option>Sort By:</option>
                     <option value="name">Name</option>
                     <option value="price">Price</option>
@@ -17,5 +19,12 @@ const SearchFilterProductBar = ({ handleChangeSearch, handleSortingOptions, rese
         </SearchFilterProductContainer>
     )
 }
+
+SearchFilterProductBar.propTypes = {
+    searchProductByTyping: PropTypes.func,
+    chooseSortingOptionFromDropdownList: PropTypes.func,
+    resetAllFilters: PropTypes.func
+}
+
 
 export default SearchFilterProductBar

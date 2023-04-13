@@ -2,37 +2,26 @@
 
 ## Introduction
 
-This project was developed as part of the DareIT Mentorship Programme.
-The main objective is to learn JS React Library by creating a Single Page Application for an Online Shop.
-The user can navigate between SPA's subpages, fill the contact form and add products to the cart.
+This is a FullStack Version of a "MyShop" Project with React, Node, Express and PostgreSQL. The project was developed as a part of DareIT Mentorship Programme. 
 
-- The project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+You can find the no-server version here: [Link](https://github.com/mahtyns/mahtyns.github.io)
 
 ## How to start
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Copy the project to your local repo.
+Run npm install.
+In the server folder, run 'Nodemon index.js'.
+In the main folder, run 'npm start'.
 
 ## WIP
-- DataBase in PostgreSQL - Product Catalog ✅, user cart ▶️, user profile
-- Search Product ✅, Sort ✅ & Filter Options
-- Send Email after purchase
 - Discount coupons
-- Product Page
 - Mobile Version
 
 ## Structure
 
 ### Home Page
 
-Main page with Slider and products.
+Main page with Slider and product main categories, newsletter module.
 
 ### Products Page
 
@@ -51,6 +40,7 @@ Subpage for products added to cart by the user.
 - React Router - navigating between subpages - see more - [Link](https://reactrouter.com)
 - Styled Components - CSS styling inside each component - see more - [Link](https://styled-components.com)
 - MUI for React - Icons and other UI elements - see more - [Link](https://mui.com)
+- ESLint - Find and Fix Problems - see more - [Link](https://eslint.org)
 
 ## Resources
 

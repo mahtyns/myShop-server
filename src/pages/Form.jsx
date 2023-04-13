@@ -1,18 +1,14 @@
 import React from 'react';
-import styled from 'styled-components';
 import Forms from '../components/Forms';
-
-
-const Wrapper = styled.div`
-height: auto;`;
+import { ContactPageFormWrapper } from '../styling/contactPageStyling';
 
 
 const Form = () => {
     return (
         <>
-            <Wrapper>
+            <ContactPageFormWrapper>
                 <Forms />
-            </Wrapper>
+            </ContactPageFormWrapper>
         </>
     )
 }

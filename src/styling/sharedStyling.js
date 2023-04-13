@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const SharedTitle = styled.div`
 font-size:60px;
 text-align: center;
-margin: 10px 0px;
+margin: 90px 0px 0px 0px;
 `;
 
 export const SharedSubtitle = styled.div`
@@ -33,5 +33,7 @@ background-color: black;
 color: white;
 border: none;
 text-transform: uppercase;
-margin: 25px 0
+margin: 25px 0;
+cursor: pointer;
+font-family: "Montserrat", sans-serif;
 `

@@ -1,4 +1,5 @@
 import { AlertContainer } from '../styling/alertStyling'
+import React from 'react';
 
 const AlertInformationNavbar = () => {
     return (

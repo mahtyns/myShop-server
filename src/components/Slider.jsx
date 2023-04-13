@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import react, { useState, useEffect }  from 'react';
+import { React, useState, useEffect }  from 'react';
 import { ArrowBackIos, ArrowForwardIos } from '@material-ui/icons';
 import { banners } from '../data';
 import { SliderContainer, SliderNavArrows, ImgWrapper, SlideTextContainer, SlideImg, InfoContainer, BannerInfoTitle, BannerInfoButton } from '../styling/sliderStyling';
