@@ -14,7 +14,6 @@ In the server folder, run 'Nodemon index.js'.
 In the main folder, run 'npm start'.
 
 ## WIP
-- Building server side - Express, PostgreSQL, Node ▶️ 
 - Discount coupons
 - Mobile Version
 
