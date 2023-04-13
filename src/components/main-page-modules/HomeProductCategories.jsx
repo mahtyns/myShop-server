@@ -1,6 +1,6 @@
 import React from 'react';
-import { HomeProductCategoriesGeneralContainer, HomeProductCategoriesImagesWrapper, HomeProductCategoriesItem, HomeProductCategoriesPicture, HomeProductCategoriesCTA } from '../styling/homeProductCategoriesStyling';
-import { SharedTitle } from '../styling/sharedStyling';
+import { HomeProductCategoriesGeneralContainer, HomeProductCategoriesImagesWrapper, HomeProductCategoriesItem, HomeProductCategoriesPicture, HomeProductCategoriesCTA } from '../../styling/homeProductCategoriesStyling';
+import { SharedTitle } from '../../styling/sharedStyling';
 
 const HomeProductCategories = () => {
   return (
