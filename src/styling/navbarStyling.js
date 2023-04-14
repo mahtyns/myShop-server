@@ -27,7 +27,6 @@ export const NavbarLogo = styled.div`
   font-size: 2rem;
   @media (max-width: 768px) {
     font-size: 2.5em;
-    padding: 0 1em
   }
 `;
 
@@ -87,5 +86,6 @@ export const NavbarWrapperMobile = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
-  height: 100%
+  height: 100%;
+  padding: 1.5em;
   `
