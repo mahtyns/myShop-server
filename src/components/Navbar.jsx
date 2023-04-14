@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Search, ShoppingCartSharp, PersonSharp } from '@material-ui/icons';
 import { Badge } from '@material-ui/core';
 import { Link } from "react-router-dom";
-import { NavbarContainer, NavbarWrapper, NavbarLogo, NavigationLinksContainer, UserInteractionsContainer, SearchInputWrapper, SearchInput, NavigationList, ListItem } from '../styling/navbarStyling';
+import { NavbarContainer, NavbarWrapper, NavbarLogo, NavigationLinksContainer, UserInteractionsContainer, SearchInputWrapper, SearchInput, NavigationList, ListItem, NavbarWrapperMobile } from '../styling/navbarStyling';
 
 const Navbar = ({ finalPriceCount, itemsCartNumber }) => {
     return (
@@ -34,6 +34,9 @@ const Navbar = ({ finalPriceCount, itemsCartNumber }) => {
                     {finalPriceCount} €
                 </UserInteractionsContainer>
             </NavbarWrapper>
+            <NavbarWrapperMobile>
+                <NavbarLogo><Link to="/">CousMetics</Link></NavbarLogo>
+            </NavbarWrapperMobile>
         </NavbarContainer>
     )
 }

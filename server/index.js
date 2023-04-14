@@ -5,7 +5,7 @@ const pool = require("./db");
 const pg = require('pg')
 
 const db_URL = 'postgres://nxcwclte:qbUqD7ikUh0bO4j9JJBOR_QUnf7TEcwM@horton.db.elephantsql.com/nxcwclte'
-var client = new pg.Client(db_URL);
+const client = new pg.Client(db_URL);
 client.connect(function(err) {
   if(err) {
     return console.error('could not connect to postgres', err);

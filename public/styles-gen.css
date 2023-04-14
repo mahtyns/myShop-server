@@ -1,7 +1,8 @@
 * {
     margin: 0px;
     box-sizing: border-box;
-  
+    overflow-x: hidden;
+
 }
 
 a {
@@ -14,4 +15,3 @@ a:visited {
     color: black;
 
 }
-
