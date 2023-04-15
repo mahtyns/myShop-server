@@ -88,4 +88,7 @@ export const NavbarWrapperMobile = styled.div`
   width: 100%;
   height: 100%;
   padding: 1.5em;
+  @media (min-width: 768px) {
+    display: none;
+  }
   `

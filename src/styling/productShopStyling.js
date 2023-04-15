@@ -19,7 +19,7 @@ export const ProductsContainer = styled.div`
 
 // ProductItem styling - for each product from array in data.js file
 export const ProductItemContainer = styled.div`
-  flex: 1;
+  flex: 1 1 1 1;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

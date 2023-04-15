@@ -61,7 +61,6 @@ const App = () => {
     .then((response) => response.json())
     .then((data) => console.log(data))
     .catch((error) => console.error(error));}
-    setFinalPriceCount(finalPriceCount + product.product_price) 
 };
 
   const getProductsInCart = async () => {
@@ -71,8 +70,7 @@ const App = () => {
           headers: { "Content-Type": "application/json" },
         });
         const responseToJsonData = await response.json();
-
-        setItemsAddedToCartList(responseToJsonData)
+        setItemsAddedToCartList(responseToJsonData);
       } catch (error) {
         console.error(error.message);
       }
@@ -80,6 +78,11 @@ const App = () => {
 
   useEffect(() => {
     getProductsInCart();
+    setItemsCartNumber(itemsAddedToCartList.length)
+    const getPrice = (item) => { return item.product_price}
+    const sum = (a,b) => {return a + b}
+    if (itemsAddedToCartList.length !== 0 ) {const sumPrice = itemsAddedToCartList.map(getPrice).reduce(sum)
+    setFinalPriceCount(sumPrice)} else setFinalPriceCount(0)
   }, [itemsAddedToCartList])
 
     const checkIfRepeatedInCart = (index) => {
