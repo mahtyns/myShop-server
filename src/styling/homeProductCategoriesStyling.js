@@ -11,14 +11,21 @@ display: flex;
 flex-direction: row;
 padding: 2rem;
 margin: 0 auto;
-justify-content: space-between`;
+justify-content: space-between;
+@media (max-width: 900px) {
+    flex-direction: column;
+    align-items: center
+  }`;
 
 export const HomeProductCategoriesItem = styled.div`
 flex: 1;
 width: 300px;
 height: 250px;
 margin: 5px;
-position: relative`;
+position: relative;
+@media (max-width: 900px) {
+    width: 90%;
+  }`;
 
 export const HomeProductCategoriesPicture = styled.img`
 width: 100%;

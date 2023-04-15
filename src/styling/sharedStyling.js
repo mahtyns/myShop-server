@@ -5,6 +5,12 @@ export const SharedTitle = styled.div`
 font-size:60px;
 text-align: center;
 margin: 90px 0px 0px 0px;
+width: 100%;
+@media (max-width: 620px) {
+    font-size: 45px;
+    word-wrap: break-word;
+    margin: 50px 0
+  }
 `;
 
 export const SharedSubtitle = styled.div`
@@ -20,6 +26,9 @@ display:flex;
 flex-direction: column;
 text-align: center;
 font-family: "Montserrat", sans-serif;
+@media (max-width: 475px) {
+    padding: 10px 25px
+  }
 `;
 
 export const SharedSecondaryText = styled.div`

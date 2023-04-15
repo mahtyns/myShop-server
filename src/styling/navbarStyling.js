@@ -1,10 +1,12 @@
-import styledComponents from "styled-components";
 import styled from "styled-components";
 
 export const NavbarContainer = styled.div`
   height: 60px;
   background-color: rgb(249, 245, 240);
   width: 100%;
+  @media (max-width: 768px) {
+    height: 100px;
+  }
 `;
 
 export const NavbarWrapper = styled.div`
@@ -14,12 +16,18 @@ export const NavbarWrapper = styled.div`
   align-items: center;
   justify-content: space-between;
   text-align: center;
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const NavbarLogo = styled.div`
   flex: 1;
   font-family: "MonteCarlo", cursive;
   font-size: 2rem;
+  @media (max-width: 768px) {
+    font-size: 2.5em;
+  }
 `;
 
 export const NavigationLinksContainer = styled.div`
@@ -73,3 +81,14 @@ export const ListItem = styled.li`
     text-decoration: none;
   }
 `;
+
+export const NavbarWrapperMobile = styled.div`
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 1.5em;
+  @media (min-width: 768px) {
+    display: none;
+  }
+  `
