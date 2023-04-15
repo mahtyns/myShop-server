@@ -17,7 +17,6 @@ const App = () => {
   const [productCatalogList, setProductCatalogList] = useState([]);
   const [itemsAddedToCartList, setItemsAddedToCartList] = useState([]);
   const [finalPriceCount, setFinalPriceCount] = useState(0);
-  // const finalPriceCount = useRef(null)
   const [itemsCartNumber, setItemsCartNumber] = useState(0);
   const [deliveryOptionId, setDeliveryOptionId] = useState(null);
 

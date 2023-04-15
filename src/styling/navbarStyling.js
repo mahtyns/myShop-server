@@ -92,3 +92,38 @@ export const NavbarWrapperMobile = styled.div`
     display: none;
   }
   `
+
+  export const NavBarMenuMobile = styled.div`
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  height: 100vh;
+  width: 100%;
+  background-color: #827b6e;
+  align-items: center`
+  
+  export const NavigationListMobile = styled.ul`
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 0
+`;
+
+export const ListItemMobile = styled.li`
+  padding: 0px 10px;
+  cursor: pointer;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5em;
+  margin: 1em 0;
+
+  &:hover {
+    text-decoration: underline;
+    color: black;
+  }
+  &:visited {
+    text-decoration: none;
+  }
+`;
