@@ -58,10 +58,10 @@ app.get('/cart-products/:product_id', async (req, res) => {
 
 app.post('/cart-products', async (req, res) => {
   try {
-    const { product_id, product_name, product_description, product_price, product_cat, product_stock, product_url } = req.body;
+    const { product_id, product_name, product_description, product_price, product_cat, product_stock, product_url, product_quantity } = req.body;
     const result = await pool.query(
-      'INSERT INTO user_product (product_id, product_name, product_description, product_price, product_cat, product_stock, product_url) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *',
-      [product_id, product_name, product_description, product_price, product_cat, product_stock, product_url]
+      'INSERT INTO user_product (product_id, product_name, product_description, product_price, product_cat, product_stock, product_url, product_quantity) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *',
+      [product_id, product_name, product_description, product_price, product_cat, product_stock, product_url, product_quantity]
     );
     res.status(201).json(result.rows[0]);
   } catch (err) {
@@ -105,6 +105,17 @@ app.get("/products/:id", async(req,res) => {
 
     }
 } )
+
+app.put("/products/:product_id"), async (req,res) => {
+  try {
+    const {product_id} = req.params;
+    const {stock} = req.body
+    const updateStock = await pool.query("UPDATE products_table SET product_stock = $1 WHERE product_id = $2", [stock, product_id]);
+    res.json('Stock was updated')
+  } catch (error) {
+    console.log(error.message)
+  }
+}
 
 app.listen(5000, () => {
     console.log("Server for myshop started on port 5000")

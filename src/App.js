@@ -42,7 +42,6 @@ const App = () => {
   //Adding items to user cart
 
  const addToCart = (product) => {
-
   if (!checkIfRepeatedInCart(product.product_id))
   {
   fetch('http://localhost:5000/cart-products', {
@@ -56,12 +55,15 @@ const App = () => {
       product_cat: product.product_cat,
       product_stock: product.product_stock,
       product_url: product.product_url,
+      product_quantity: 1
     }),
   })
     .then((response) => response.json())
     .then((data) => console.log(data))
-    .catch((error) => console.error(error));}
-};
+    .catch((error) => console.error(error));
+    }
+}
+;
 
   const getProductsInCart = async () => {
       try {
@@ -76,13 +78,32 @@ const App = () => {
       }
   };
 
+  const updateProductStock = async (product) => {
+    try {
+      const newStock = product.product_stock - 1;
+      const response = await fetch(`http://localhost:5000/products/${product.product_id}`, 
+      {
+        method: "PUT",
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({stock: newStock})
+      })
+       const updatedProduct = await response.json();
+      return updatedProduct;
+    } catch (error) {
+      console.log(error.message)
+    }
+  }
+
   useEffect(() => {
     getProductsInCart();
     setItemsCartNumber(itemsAddedToCartList.length)
+ 
     const getPrice = (item) => { return item.product_price}
     const sum = (a,b) => {return a + b}
     if (itemsAddedToCartList.length !== 0 ) {const sumPrice = itemsAddedToCartList.map(getPrice).reduce(sum)
-    setFinalPriceCount(sumPrice)} else setFinalPriceCount(0)
+    setFinalPriceCount(sumPrice)} else setFinalPriceCount(0);
+
+
   }, [itemsAddedToCartList])
 
     const checkIfRepeatedInCart = (index) => {

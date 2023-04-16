@@ -24,7 +24,7 @@ const SingleCartProductElement = (props) => {
                     €</CartProductPrice>
                 <CartProductAuxiliaryText>
                     <Add/>
-                    Amount: {addedCartItem.amount}
+                    Amount: {addedCartItem.product_quantity}
                     <Remove/>
                     <AddRemoveCartProductButton onClick={() => props.deleteFromCart(addedCartItem.product_id)}>
                         <Delete/>
