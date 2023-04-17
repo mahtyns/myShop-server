@@ -12,13 +12,22 @@ const ProductCatalogSingleItem = (props) => {
         <ProductDescr>{props.productFromCatalog.product_description}</ProductDescr>
         <ProductStock>{props.productFromCatalog.product_stock ? 'Left: ' + props.productFromCatalog.product_stock : "No stock"}</ProductStock>
       </ProductInfo>
-      {props.productFromCatalog.product_stock ? <AddCartButton onClick={() => props.addToCart(props.productFromCatalog)}>Add to Cart</AddCartButton> : null}
+      {props.productFromCatalog.product_stock ? <AddCartButton 
+      onClick={()=> {
+          props.checkIfRepeatedInCart(props.productFromCatalog.product_id ? props.changeQuantityInCart(props.productFromCatalog) : props.addFirstToCart(props.productFromCatalog) )
+        }
+        // () => props.addToCart(props.productFromCatalog)
+        }>
+      Add to Cart</AddCartButton> : null}
     </ProductItemContainer>
   )
 }
 ProductCatalogSingleItem.propTypes = {
   productFromCatalog: PropTypes.object,
-  addToCart: PropTypes.func
+  checkIfRepeatedInCart: PropTypes.func,
+  addFirstToCart: PropTypes.func,
+  changeQuantityInCart: PropTypes.func,
+  // addToCart: PropTypes.func
 }
 
 export default ProductCatalogSingleItem;

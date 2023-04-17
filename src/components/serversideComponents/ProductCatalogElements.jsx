@@ -7,7 +7,13 @@ const ProductCatalogElements = (props) => {
   return (
     <ProductsContainer>
       {props.productCatalogList.map((productFromCatalog) => 
-        <ProductCatalogSingleItem key={productFromCatalog.product_id} productFromCatalog={productFromCatalog} addToCart={props.addToCart} deleteFromCart={props.deleteFromCart}/>
+        <ProductCatalogSingleItem 
+        key={productFromCatalog.product_id} 
+        productFromCatalog={productFromCatalog} 
+        // addToCart={props.addToCart} 
+          checkIfRepeatedInCart={props.checkIfRepeatedInCart}
+          addFirstToCart={props.addFirstToCart}
+          changeQuantityInCart={props.changeQuantityInCart} />
       )}
     </ProductsContainer>
   )
@@ -15,8 +21,10 @@ const ProductCatalogElements = (props) => {
 
 ProductCatalogElements.propTypes = {
   productCatalogList: PropTypes.array,
-  addToCart: PropTypes.func,
-  deleteFromCart: PropTypes.func,
+  // addToCart: PropTypes.func,
+  checkIfRepeatedInCart: PropTypes.func,
+  addFirstToCart: PropTypes.func,
+  changeQuantityInCart: PropTypes.func,
 }
 
 export default ProductCatalogElements;

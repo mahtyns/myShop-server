@@ -15,7 +15,11 @@ const ProductsCatalog = ( props ) => {
       <ProductShopContainer>
         <ProductCatalogElements 
         productCatalogList={props.productCatalogList} 
-        addToCart={props.addToCart} />
+        // addToCart={props.addToCart}
+          checkIfRepeatedInCart={props.checkIfRepeatedInCart}
+          addFirstToCart={props.addFirstToCart}
+          changeQuantityInCart={props.changeQuantityInCart} 
+        />
       </ProductShopContainer>
     </>
   )
@@ -23,8 +27,10 @@ const ProductsCatalog = ( props ) => {
 
 ProductsCatalog.propTypes = {
   productCatalogList: PropTypes.array,
-  addToCart: PropTypes.func, 
-  deleteFromCart: PropTypes.func
+  // addToCart: PropTypes.func, 
+  checkIfRepeatedInCart: PropTypes.func,
+  addFirstToCart: PropTypes.func,
+  changeQuantityInCart: PropTypes.func
 }
 
 export default ProductsCatalog;

@@ -41,10 +41,46 @@ const App = () => {
 
   //Adding items to user cart
 
- const addToCart = (product) => {
-  if (!checkIfRepeatedInCart(product.product_id))
-  {
-  fetch('http://localhost:5000/cart-products', {
+//  const addToCart = (product) => {
+//   if (!checkIfRepeatedInCart(product.product_id))
+//   {
+//   fetch('http://localhost:5000/cart-products', {
+//     method: 'POST',
+//     headers: { 'Content-Type': 'application/json' },
+//     body: JSON.stringify({
+//       product_id: product.product_id,
+//       product_name: product.product_name,
+//       product_description: product.product_description,
+//       product_price: product.product_price,
+//       product_cat: product.product_cat,
+//       product_stock: product.product_stock,
+//       product_url: product.product_url,
+//       product_quantity: 1
+//     }),
+//   })
+//     .then((response) => response.json())
+//     .then((data) => console.log(data))
+//     .catch((error) => console.error(error));
+//     }
+//    else {
+//     const newQuantity = product.product_quantity + 1;
+//     fetch(`http://localhost:5000/cart-products/${product.product_id}`, {
+//       method: 'PUT',
+//       headers: { 'Content-Type': 'application/json' },    
+//       body: JSON.stringify({
+//         product_quantity: newQuantity,
+//         product_id: product.product_id
+//       })
+//     })
+//     .then((response) => response.json())
+//     .then((data) => console.log(data))
+//     .catch((error) => console.error(error));
+//   }  
+// }
+// ;
+
+  const addFirstToCart = (product) => {
+    fetch('http://localhost:5000/cart-products', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
@@ -61,9 +97,22 @@ const App = () => {
     .then((response) => response.json())
     .then((data) => console.log(data))
     .catch((error) => console.error(error));
-    }
-}
-;
+  }
+
+  const changeQuantityInCart = (product) => {
+    const newQuantity = product.product_quantity + 1;
+    fetch(`http://localhost:5000/cart-products/${product.product_id}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },    
+      body: JSON.stringify({
+        product_quantity: newQuantity,
+        product_id: product.product_id
+      })
+    })
+    .then((response) => response.json())
+    .then((data) => console.log(data))
+    .catch((error) => console.error(error));
+  }
 
   const getProductsInCart = async () => {
       try {
@@ -154,7 +203,12 @@ const App = () => {
           <Route path="/contact" element={<Form />} />
           <Route
             path="/products"
-            element={<ProductsCatalog productCatalogList={productCatalogList} addToCart={addToCart} />}
+            element={<ProductsCatalog 
+              productCatalogList={productCatalogList} 
+              // addToCart={addToCart}
+              checkIfRepeatedInCart={checkIfRepeatedInCart}
+              addFirstToCart={addFirstToCart}
+              changeQuantityInCart={changeQuantityInCart} />}
           />
           <Route path="/about" element={<About />} />
           <Route path="/checkout" element={<PurchaseSummary 

@@ -36,8 +36,8 @@ app.get("/cart-products", async(req,res)=> {
 app.get("/products:id", async (req,res) => {
     try {
         const product_id = req.params;
-        const todo = await pool.query("SELECT (*) FROM products WHERE product_id = $1", [product_id])
-        res.json(todo.rows[0])
+        const products = await pool.query("SELECT (*) FROM products WHERE product_id = $1", [product_id])
+        res.json(products.rows[0])
     } catch (error) {
         console.error(error.message)
     }
@@ -55,6 +55,17 @@ app.get('/cart-products/:product_id', async (req, res) => {
     res.status(500).send('Server Error');
   }
 });
+
+app.put('/cart-products/:product_id', async (req,res) => {
+  try {
+   const { product_id } = req.params;
+   const {product_quantity} = req.body;
+   const updatedQuantity = await pool.query("UPDATE user_product SET product_quantity = $1 WHERE product_id = $2", [product_quantity, product_id]);
+   res.json('updated quantity')
+  } catch (error) {
+    console.log(error.message)
+  }
+})
 
 app.post('/cart-products', async (req, res) => {
   try {
